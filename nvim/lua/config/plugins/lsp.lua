@@ -16,18 +16,13 @@ return {
 		},
 		config = function()
 			local capabilities = require('blink.cmp').get_lsp_capabilities()
-			-- vim.lsp.config.['lua_ls'].setup { capabilities = capabilities }
-			-- vim.lsp.config.['clangd'].setup { capabilities = capabilities }
-			-- vim.lsp.config.['pyright'].setup { capabilities = capabilities }
-			-- vim.lsp.config.['jdtls'].setup { capabilities = capabilities }
-			-- vim.lsp.config.['ts_ls'].setup { capabilities = capabilities }
-			-- vim.lsp.config.['neocmake'].setup { capabilities = capabilities }
 			vim.lsp.config['lus_ls'] = { capabilities = capabilities }
 			vim.lsp.config['pyright'] = { capabilities = capabilities }
 			vim.lsp.config['jdtls'] = { capabilities = capabilities }
 			vim.lsp.config['ts_ls'] = { capabilities = capabilities }
 			vim.lsp.config['clangd'] = { capabilities = capabilities }
 			vim.lsp.config['neocmake'] = { capabilities = capabilities }
+			vim.lsp.config['gopls'] = { capabilities = capabilities }
 			vim.keymap.set("n", "<space>f", function() vim.lsp.buf.format() end)
 			vim.keymap.set('n', '<leader>r', vim.lsp.buf.rename, { desc = 'LSP Rename' })
 		end,
@@ -36,6 +31,7 @@ return {
 		vim.lsp.enable('jdtls'),
 		vim.lsp.enable('ts_ls'),
 		vim.lsp.enable('neocmake'),
-		vim.lsp.enable('clangd')
+		vim.lsp.enable('clangd'),
+		vim.lsp.enable('gopls')
 	},
 }

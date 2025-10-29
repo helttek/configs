@@ -3,7 +3,7 @@ return {
 	{
 		'rebelot/kanagawa.nvim',
 		-- to disable the plugin uncomment the following line
-		-- enabled = false,
+		enabled = false,
 		config = function()
 			-- Default options:
 			require('kanagawa').setup({
