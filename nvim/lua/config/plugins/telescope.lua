@@ -1,16 +1,16 @@
 -- plugins/telescope.lua:
 return {
 	'nvim-telescope/telescope.nvim',
-	tag = '0.1.8',
-	-- or, branch = '0.1.x',
+	version = '*',
 	dependencies = {
 		'nvim-lua/plenary.nvim',
-		{
-			'nvim-telescope/telescope-fzf-native.nvim',
-			build = 'cmake -S. -Bbuild -DCMAKE_BUILD_TYPE=Release && cmake --build build --config Release'
-		}
+		-- optional but recommended
+		{ 'nvim-telescope/telescope-fzf-native.nvim', build = 'make' },
 	},
-	config = function()
-		vim.keymap.set("n", "<space>d", require('telescope.builtin').find_files)
-	end,
+	keys = {
+		{ '<leader>d', '<cmd>Telescope find_files<cr>', desc = 'Find Files' },
+		{ '<leader>fg', '<cmd>Telescope live_grep<cr>',  desc = 'Live Grep' },
+		{ '<leader>fb', '<cmd>Telescope buffers<cr>',    desc = 'Buffers' },
+		{ '<leader>fh', '<cmd>Telescope help_tags<cr>',  desc = 'Help Tags' },
+	}
 }
