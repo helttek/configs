@@ -25,6 +25,10 @@ return {
 			vim.lsp.config['gopls'] = { capabilities = capabilities }
 			vim.keymap.set("n", "<space>f", function() vim.lsp.buf.format() end)
 			vim.keymap.set('n', '<leader>r', vim.lsp.buf.rename, { desc = 'LSP Rename' })
+			vim.keymap.set('n', '<leader>m', function()
+				vim.diagnostic.open_float(nil, { scope = 'cursor' })
+			end, { desc = 'Show diagnostics' })
+			vim.keymap.set('n', '<leader>ma', vim.diagnostic.setqflist, { desc = 'Open diagnostic [Q]uickfix list' })
 		end,
 		vim.lsp.enable('lua_ls'),
 		vim.lsp.enable('pyright'),
