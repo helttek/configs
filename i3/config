@@ -190,3 +190,4 @@ bar {
 }
 
 bindsym $mod+Control+s exec --no-startup-id systemctl suspend
+exec_always "setxkbmap -model pc104 -layout us,ru -variant ,, -option grp:alt_shift_toggle"
